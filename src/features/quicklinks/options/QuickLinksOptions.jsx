@@ -220,6 +220,31 @@ const QuickLinksOptions = () => {
     </Row>
   );
 
+  const ColumnsOption = () => (
+    <Row>
+      <Content
+        title={variables.getMessage(`${QUICKLINKS_SECTION}.columns`)}
+        subtitle={variables.getMessage(`${QUICKLINKS_SECTION}.columns_subtitle`)}
+      />
+      <Action>
+        <Dropdown
+          label={variables.getMessage(`${QUICKLINKS_SECTION}.columns`)}
+          name="quicklinksColumns"
+          category="quicklinks"
+          items={[
+            { value: 'auto', text: variables.getMessage(`${QUICKLINKS_SECTION}.columns_auto`) },
+            { value: '2', text: '2' },
+            { value: '3', text: '3' },
+            { value: '4', text: '4' },
+            { value: '5', text: '5' },
+            { value: '6', text: '6' },
+            { value: '8', text: '8' },
+          ]}
+        />
+      </Action>
+    </Row>
+  );
+
   const AddLink = () => (
     <Row final={true}>
       <Content title={variables.getMessage(`${QUICKLINKS_SECTION}.title`)} />
@@ -254,6 +279,7 @@ const QuickLinksOptions = () => {
       >
         <AdditionalSettings />
         <StylingOptions />
+        <ColumnsOption />
         <AddLink />
 
         {items.length === 0 && (

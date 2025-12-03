@@ -337,7 +337,10 @@
               "metro": "Metro"
             },
             "styling": "Styling",
-            "styling_description": "Customise Quick Links appearance"
+            "styling_description": "Customise Quick Links appearance",
+            "columns": "Columns",
+            "columns_subtitle": "Number of columns to display quick links in",
+            "columns_auto": "Auto"
           },
           "message": {
             "title": "Message",

@@ -130,13 +130,14 @@ const QuickLinks = memo(() => {
     );
   };
 
-  const columns = Number(localStorage.getItem('quicklinksColumns')) || 4;
+  const columnsValue = localStorage.getItem('quicklinksColumns');
+  const columns = columnsValue && columnsValue !== 'auto' ? Number(columnsValue) : null;
 
   return (
     <div 
       className="quicklinkscontainer" 
       ref={quicklinksContainer}
-      style={{ '--quicklinks-columns': Math.min(columns, items.length) }}
+      style={columns ? { '--quicklinks-columns': columns } : undefined}
     >
       {items && items.map((item, index) => quickLink(item, index))}
     </div>

@@ -392,6 +392,9 @@
           "quicklinks": {
             "add_link": "Add Link",
             "additional": "Additional settings for quick links display and functions",
+            "columns": "Columns",
+            "columns_auto": "Auto",
+            "columns_subtitle": "Number of columns to display quick links in",
             "edit": "Edit",
             "no_quicklinks": "No quicklinks",
             "open_new": "Open in new tab",
