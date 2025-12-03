@@ -50,7 +50,7 @@ const QuickLinks = memo(() => {
         }
 
         if (quicklinksContainer.current) {
-          quicklinksContainer.current.style.display = 'flex';
+          quicklinksContainer.current.style.display = 'grid';
         }
         
         setItems(readQuicklinks());
@@ -130,10 +130,13 @@ const QuickLinks = memo(() => {
     );
   };
 
+  const columns = Number(localStorage.getItem('quicklinksColumns')) || 4;
+
   return (
     <div 
       className="quicklinkscontainer" 
       ref={quicklinksContainer}
+      style={{ '--quicklinks-columns': Math.min(columns, items.length) }}
     >
       {items && items.map((item, index) => quickLink(item, index))}
     </div>
