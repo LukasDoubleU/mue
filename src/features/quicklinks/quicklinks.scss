@@ -28,9 +28,10 @@
   overflow-x: visible;
   box-sizing: border-box;
 
-  &[style*="--quicklinks-columns"] {
-    display: grid;
-    grid-template-columns: repeat(var(--quicklinks-columns), auto);
+  // When using column rows, stack rows vertically
+  &.has-columns {
+    flex-direction: column;
+    align-items: center;
   }
 
   &.sortable-quicklinks {
@@ -49,6 +50,12 @@
     color: #636e72;
     opacity: 1;
   }
+}
+
+.quicklinks-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
 .topbarquicklinks {

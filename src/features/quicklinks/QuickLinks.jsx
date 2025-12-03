@@ -133,13 +133,35 @@ const QuickLinks = memo(() => {
   const columnsValue = localStorage.getItem('quicklinksColumns');
   const columns = columnsValue && columnsValue !== 'auto' ? Number(columnsValue) : null;
 
+  // Render items, chunked into rows if columns are specified
+  const renderItems = () => {
+    if (!items) return null;
+    
+    const renderedItems = items.map((item, index) => quickLink(item, index));
+    
+    // If no column limit, render flat (flexbox will wrap naturally)
+    if (!columns) {
+      return renderedItems;
+    }
+    
+    // Chunk into rows for centered last row
+    const rows = [];
+    for (let i = 0; i < renderedItems.length; i += columns) {
+      rows.push(
+        <div className="quicklinks-row" key={`row-${i}`}>
+          {renderedItems.slice(i, i + columns)}
+        </div>
+      );
+    }
+    return rows;
+  };
+
   return (
     <div 
-      className="quicklinkscontainer" 
+      className={`quicklinkscontainer${columns ? ' has-columns' : ''}`}
       ref={quicklinksContainer}
-      style={columns ? { '--quicklinks-columns': columns } : undefined}
     >
-      {items && items.map((item, index) => quickLink(item, index))}
+      {renderItems()}
     </div>
   );
 });
