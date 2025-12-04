@@ -233,12 +233,12 @@ const QuickLinksOptions = () => {
           category="quicklinks"
           items={[
             { value: 'auto', text: variables.getMessage(`${QUICKLINKS_SECTION}.columns_auto`) },
-            { value: '2', text: '2' },
-            { value: '3', text: '3' },
-            { value: '4', text: '4' },
-            { value: '5', text: '5' },
-            { value: '6', text: '6' },
-            { value: '8', text: '8' },
+            { value: '3', text: '2' },
+            { value: '4', text: '3' },
+            { value: '5', text: '4' },
+            { value: '6', text: '5' },
+            { value: '7', text: '6' },
+            { value: '9', text: '8' },
           ]}
         />
       </Action>

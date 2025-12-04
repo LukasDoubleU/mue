@@ -28,12 +28,11 @@
   overflow-x: visible;
   box-sizing: border-box;
 
-  // When columns are specified, use CSS Grid for proper alignment
+  // When columns are specified, constrain max-width to force row breaks
   &.has-columns {
-    display: grid;
-    grid-template-columns: repeat(var(--quicklinks-columns), auto);
-    justify-content: center;
-    justify-items: center;
+    // Calculate max-width: (tile width * columns) + (gap * (columns - 1)) + padding + buffer
+    // With box-sizing: border-box, padding is included in max-width
+    max-width: calc(var(--quicklinks-columns) * (160px + 12px) - 12px + 50px + 2px);
   }
 
   &.sortable-quicklinks {
