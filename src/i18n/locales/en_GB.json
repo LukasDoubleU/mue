@@ -340,7 +340,9 @@
             "styling_description": "Customise Quick Links appearance",
             "columns": "Columns",
             "columns_subtitle": "Number of columns to display quick links in",
-            "columns_auto": "Auto"
+            "columns_auto": "Auto",
+            "metro_opacity": "Metro tile opacity",
+            "metro_opacity_subtitle": "Adjust the transparency of metro style tiles"
           },
           "message": {
             "title": "Message",

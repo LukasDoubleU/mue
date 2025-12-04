@@ -396,6 +396,8 @@
             "columns_auto": "Auto",
             "columns_subtitle": "Number of columns to display quick links in",
             "edit": "Edit",
+            "metro_opacity": "Metro tile opacity",
+            "metro_opacity_subtitle": "Adjust the transparency of metro style tiles",
             "no_quicklinks": "No quicklinks",
             "open_new": "Open in new tab",
             "options": {

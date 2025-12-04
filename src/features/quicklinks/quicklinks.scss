@@ -292,7 +292,12 @@ button.quicklinks {
 }
 
 .quickLinksMetro {
-  @extend %basic;
+  // Custom basic styles (not using %basic to allow custom background opacity)
+  backdrop-filter: blur(var(--metro-blur, 15px));
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px #484848;
+  color: #fff;
+  background: rgb(0 0 0 / var(--metro-bg-opacity, 70%));
 
   text-decoration: none;
   gap: 10px;
@@ -300,9 +305,7 @@ button.quicklinks {
   flex-flow: column;
   align-items: center;
   min-width: 100px;
-  background-image: linear-gradient(to left, rgb(0 0 0), transparent, rgb(0 0 0)),
-    url('https://media.cntraveller.com/photos/615ee85…/16:9/w_2580,c_limit/Best%20Cities%20in%20the%20World%20-%20Grid.jpg');
-  transition: 0.8s;
+  transition: 0.3s;
   text-align: left;
   padding: 20px 40px;
 

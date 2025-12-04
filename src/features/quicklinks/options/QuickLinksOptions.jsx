@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { MdAddLink, MdLinkOff } from 'react-icons/md';
 import { arrayMove } from '@dnd-kit/sortable';
 import { Header, Row, Content, Action, PreferencesWrapper } from 'components/Layout/Settings';
-import { Checkbox, Dropdown } from 'components/Form/Settings';
+import { Checkbox, Dropdown, Slider } from 'components/Form/Settings';
 import { Button } from 'components/Elements';
 import Modal from 'react-modal';
 
@@ -245,6 +245,25 @@ const QuickLinksOptions = () => {
     </Row>
   );
 
+  const MetroOpacity = () => (
+    <Row>
+      <Content
+        title={variables.getMessage(`${QUICKLINKS_SECTION}.metro_opacity`)}
+        subtitle={variables.getMessage(`${QUICKLINKS_SECTION}.metro_opacity_subtitle`)}
+      />
+      <Action>
+        <Slider
+          title={variables.getMessage(`${QUICKLINKS_SECTION}.metro_opacity`)}
+          name="quicklinksMetroOpacity"
+          min="0"
+          max="100"
+          default="100"
+          category="quicklinks"
+        />
+      </Action>
+    </Row>
+  );
+
   const AddLink = () => (
     <Row final={true}>
       <Content title={variables.getMessage(`${QUICKLINKS_SECTION}.title`)} />
@@ -280,6 +299,7 @@ const QuickLinksOptions = () => {
         <AdditionalSettings />
         <StylingOptions />
         <ColumnsOption />
+        <MetroOpacity />
         <AddLink />
 
         {items.length === 0 && (

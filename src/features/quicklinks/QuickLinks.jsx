@@ -156,10 +156,22 @@ const QuickLinks = memo(() => {
     return rows;
   };
 
+  // Metro tile background opacity: slider 0-100 maps to 0%-70% background opacity
+  // Also reduce blur as opacity decreases for true transparency
+  const metroOpacity = localStorage.getItem('quicklinksMetroOpacity') ?? 100;
+  const opacityValue = Number(metroOpacity) / 100;
+  const bgOpacity = opacityValue * 70; // 0-100 slider → 0-70% opacity
+  const blur = opacityValue * 15; // 0-100 slider → 0-15px blur
+  const style = {
+    '--metro-bg-opacity': `${bgOpacity}%`,
+    '--metro-blur': `${blur}px`,
+  };
+
   return (
     <div 
       className={`quicklinkscontainer${columns ? ' has-columns' : ''}`}
       ref={quicklinksContainer}
+      style={style}
     >
       {renderItems()}
     </div>
