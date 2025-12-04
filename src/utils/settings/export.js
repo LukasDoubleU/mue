@@ -1,6 +1,13 @@
 import { saveFile } from 'utils/saveFile';
 import variables from 'config/variables';
 
+// Keys that should not be exported (transient cache data, not actual settings)
+const EXCLUDED_KEYS = [
+  'currentWeather',
+  'currentQuote',
+  'currentBackground',
+];
+
 /**
  * It takes all the settings from localStorage and saves them to a file
  */
@@ -8,6 +15,9 @@ export function exportSettings() {
   const settings = {};
 
   Object.keys(localStorage).forEach((key) => {
+    if (EXCLUDED_KEYS.includes(key)) {
+      return;
+    }
     settings[key] = localStorage.getItem(key);
   });
 
