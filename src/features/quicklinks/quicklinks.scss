@@ -28,10 +28,12 @@
   overflow-x: visible;
   box-sizing: border-box;
 
-  // When using column rows, stack rows vertically
+  // When columns are specified, use CSS Grid for proper alignment
   &.has-columns {
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(var(--quicklinks-columns), auto);
+    justify-content: center;
+    justify-items: center;
   }
 
   &.sortable-quicklinks {
@@ -52,11 +54,7 @@
   }
 }
 
-.quicklinks-row {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
+// .quicklinks-row removed - using CSS Grid instead for proper column alignment
 
 .topbarquicklinks {
   svg {
@@ -304,10 +302,12 @@ button.quicklinks {
   display: flex;
   flex-flow: column;
   align-items: center;
-  min-width: 100px;
+  justify-content: center;
+  width: 160px;
+  height: 100px;
   transition: 0.3s;
-  text-align: left;
-  padding: 20px 40px;
+  text-align: center;
+  padding: 15px;
 
   @include themed {
     &:hover {

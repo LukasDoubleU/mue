@@ -133,29 +133,6 @@ const QuickLinks = memo(() => {
   const columnsValue = localStorage.getItem('quicklinksColumns');
   const columns = columnsValue && columnsValue !== 'auto' ? Number(columnsValue) : null;
 
-  // Render items, chunked into rows if columns are specified
-  const renderItems = () => {
-    if (!items) return null;
-    
-    const renderedItems = items.map((item, index) => quickLink(item, index));
-    
-    // If no column limit, render flat (flexbox will wrap naturally)
-    if (!columns) {
-      return renderedItems;
-    }
-    
-    // Chunk into rows for centered last row
-    const rows = [];
-    for (let i = 0; i < renderedItems.length; i += columns) {
-      rows.push(
-        <div className="quicklinks-row" key={`row-${i}`}>
-          {renderedItems.slice(i, i + columns)}
-        </div>
-      );
-    }
-    return rows;
-  };
-
   // Metro tile background opacity: slider 0-100 maps to 0%-70% background opacity
   // Also reduce blur as opacity decreases for true transparency
   const metroOpacity = localStorage.getItem('quicklinksMetroOpacity') ?? 100;
@@ -167,13 +144,18 @@ const QuickLinks = memo(() => {
     '--metro-blur': `${blur}px`,
   };
 
+  // Add CSS variable for column count when specified
+  if (columns) {
+    style['--quicklinks-columns'] = columns;
+  }
+
   return (
     <div 
       className={`quicklinkscontainer${columns ? ' has-columns' : ''}`}
       ref={quicklinksContainer}
       style={style}
     >
-      {renderItems()}
+      {items?.map((item, index) => quickLink(item, index))}
     </div>
   );
 });
