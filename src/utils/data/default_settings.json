@@ -152,6 +152,14 @@
     "value": false
   },
   {
+    "name": "quicklinksColumns",
+    "value": "auto"
+  },
+  {
+    "name": "quicklinksMetroOpacity",
+    "value": 100
+  },
+  {
     "name": "weatherEnabled",
     "value": false
   },
