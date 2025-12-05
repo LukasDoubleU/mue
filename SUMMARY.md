@@ -12,6 +12,9 @@ This fork adds configurable quicklinks grid columns, metro tile opacity controls
 - Uses CSS flexbox with `max-width` constraint to enforce column count while keeping last row centered
 - Fixed-size metro tiles (160×100px) ensure consistent grid alignment
 
+This allows for a clean quick-link layout like this:
+<img width="2547" height="1258" alt="image" src="https://github.com/user-attachments/assets/aca38b34-c40a-4ae3-8e13-596926dda9a1" />
+
 ### Metro Tile Opacity
 **Files:** `QuickLinks.jsx`, `QuickLinksOptions.jsx`, `quicklinks.scss`
 
